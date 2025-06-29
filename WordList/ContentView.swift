@@ -35,6 +35,17 @@ struct ContentView: View {
                         .background(Color.orange)
                         .clipShape(.capsule)
                 }
+                NavigationLink{
+                    ReviewView()
+                } label: {
+                    Text("復習")
+                        .font(.title)
+                        .foregroundStyle(.white)
+                        .padding(.vertical, 12)
+                        .frame(maxWidth: .infinity)
+                        .background(Color.orange)
+                        .clipShape(.capsule)
+                }
             }
             .padding(.horizontal, 60)
         }

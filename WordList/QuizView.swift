@@ -39,6 +39,27 @@ struct QuizView: View {
                 .frame(maxWidth: .infinity)
                 .background(Color.orange)
                 .clipShape(.capsule)
+                if showAnswer {
+                    let current = words[index]
+                    Button {
+                        withAnimation {
+                            current.isWrong = true
+                        }
+                    } label: {
+                        Text(current.isWrong
+                             ? "復習リストに追加済み"
+                             : "復習リストに登録")
+                        .font(.body)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 8)
+                    }
+                    .foregroundStyle(.white)
+                    .background(current.isWrong
+                                ? Color.gray
+                                : Color.red.opacity(0.8))
+                    .clipShape(Capsule())
+                    .disabled(current.isWrong)
+                }
             }
             Spacer()
             Button{
